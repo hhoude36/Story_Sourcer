@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@300&display=swap" rel="stylesheet">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@300&display=swap');
+    </style>
+    <title>Add</title>
+
+</head>
+<body>
+<!-- nav bar -->
+    <!-- ===================================================== -->
+
+<nav class="navbar navbar-expand-lg bg-light" style="font-family: 'Source Serif Pro', serif; font-size: 17pt; padding: 0px;">
+  <div class="container-fluid blah" style="background-color:#17C3B2; justify-content: flex-end;">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup" style="justify-content:flex-end; padding: 15px">
+      <div class="navbar-nav">
+        <a class="nav-link active" aria-current="page" href="/dashboard">Search</a>
+        <a class="nav-link active" aria-current="page" href="/login">Log out</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+     <!-- title -->
+    <!-- ===================================================== -->
+    <div class="col-md-12 container-fluid">
+        <h1 style="font-family: 'Oswald', sans-serif; font-size: 50pt; text-align: center;">Add A Story</h1>
+    </div>
+
+    <!-- Drop downs -->
+<!-- ===================================================== -->
+<form action="/add" method="post">
+    
+    
+    
+    <div class="row" style="font-family: 'Source Serif Pro', serif; margin: 10px">
+        <p style="text-align: center; font-size: 17pt">Title</p>
+      <div class="input-group input-group-lg">
+        <input required style="margin: 20px; margin-top: 0px; border-color: #17C3B2;" name="theTitle" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+    </div>
+    
+  
+        <div class="col">
+        <select required style="border-color:#17C3B2;" name="theAge" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+            <option value="" selected>Age Group</option>
+            <option value="PreK-1st">PreK-1st grade</option>
+            <option value="2nd-3rd">2nd-3rd grade</option>
+            <option value="4th-5th">4th-5th grade</option>
+            <option value="Middle School">Middle School</option>
+            <option value="Highschool">Highschool</option>
+            <option value="Adults">Adults</option>
+          </select>
+        </div>
+    
+        <div class="col" style="font-family: 'Source Serif Pro', serif;">
+          <select  required style="border-color:#17C3B2;" name ="theSource" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+            <option value="" selected>Source</option>
+            <option value="the Brothers Grimm">the Brothers Grimm</option>
+            <option value="Aesop's Fables">Aesop's Fables</option>
+            <option value="Perrault">Perrault</option>
+            <option value="Original">Original</option>
+          </select>
+        </div>
+
+        <div class="col">
+          <select required style="border-color:#17C3B2;" name="theMood"class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+              <option value="" selected>Mood</option>
+              <option value="funny">Funny</option>
+              <option value="random">Random</option>
+              <option value="twist ending">Twist ending</option>
+              <option value="happy">Happy</option>
+              <option value="heart warming">Heart warming</option>
+              <option value="dramatic">Dramatic</option>
+            </select>
+      </div>
+    
+    <div class="row" style="text-align: center;">
+       
+        
+            <div class="col">
+              <select required style="border-color:#17C3B2;" name="theLevel" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                <option value="" selected>Level</option>
+                <option value="Easy">Easy</option>
+                <option value="Medium">Medium</option>
+                <option value="Difficult">Difficult</option>
+              </select>
+            </div>
+    
+            <div class="col">
+                <select required style="border-color:#17C3B2;" name="theLength" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                  <option value="" selected>Length</option>
+                  <option value="short">short</option>
+                  <option value="medium">medium</option>
+                  <option value="long">long</option>
+                </select>
+              </div>
+
+              <!-- <div class="col" >
+                <input required style="border-color:#17C3B2; text-align: center;" name="storyImage" type="file" id="img" name="img" accept="image/*">
+              </div> -->
+
+
+
+        </div>
+
+   
+
+            <!-- Story content -->
+<!-- ===================================================== -->
+    <p style="text-align: center; font-size: 17pt;">Story</p>
+    <div class="input-group input-group-lg">
+      <textarea style="height: 300px; margin: 20px; margin-top: 0px; border-color:#17C3B2;" name="theText"type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+      </textarea>
+
+      </div>
+
+    <p style="text-align: center; font-size: 17pt; border-color:#17C3B2;">Notes and tips for other teachers</p>
+    <div class="input-group input-group-lg">
+      <textarea style="height: 100; margin: 20px; margin-top: 0px; border-color: #17C3B2;" name="theNotes"type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+      </textarea>
+      </div>
+      <div class="d-grid gap-2 col-6 mx-auto">
+        <button class="btn btn-primary" type="submit" style="background-color:#FFE278; color:black; font-size: 17pt; ">+ Add Story</button>
+      </div>
+</form>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@300&display=swap');
+    </style>
+    <title><%= theStory.dataValues.title %></title>
+</head>
+<body style="background-color:rgb(242, 242, 242);">
+   <!-- nav bar -->
+<!-- ===================================================== -->
+<nav class="navbar navbar-expand-lg bg-light" style="font-family: 'Source Serif Pro', serif; font-size: 17pt; padding: 0px;">
+  <div class="container-fluid blah" style="background-color:#17C3B2; justify-content: flex-end;">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup" style="justify-content:flex-end; padding: 15px">
+      <div class="navbar-nav">
+        <a class="nav-link active" aria-current="page" href="/dashboard">Search</a>
+        <a class="nav-link active" aria-current="page" href="/login">Log out</a>
+      </div>
+    </div>
+  </div>
+</nav>
+ <!-- title -->
+    <!-- ===================================================== -->
+        <div class="col-md-12 container-fluid" style="background-color: #FFE278; text-align: center;">
+        <h1 style="font-family: 'Oswald', sans-serif; font-size: 50pt;"><%= theStory.dataValues.title %></h1>
+        </div>
+<!-- story content -->
+<!-- ===================================================== -->
+
+<div style="display:flex; flex-direction: column; align-items:center; margin: 20px; margin-right:10px">
+<!-- <img class="img-fluid"  width= 400px; style="margin-right:10px;" src="	https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Vasilisa.jpg/1024px-Vasilisa.jpg"> -->
+<div style="font-family: 'Source Serif Pro', serif; font-size:15pt">
+<div class="col-md-12 container-fluid"style="background-color: white; border-radius: 10px; padding: 8px;  ">
+<p><%= theStory.dataValues.text %></p>
+</div>
+</div>
+
+<p style="font-weight:bolder; font-size: 17pt; font-family:'Source Serif Pro', serif; margin-top: 20px;">Teacher tips</p>
+<div class="col-md-12 container-fluid" style=" text-align:center; font-size: 17pt; margin-top: 4px; font-family:'Source Serif Pro', serif; margin-bottom: 40px;  background-color: white; border-radius: 10px;">
+  <p><%= theStory.dataValues.comments %></p>
+</div>
+</div>
+
+  <!-- Add rating/ comments -->
+  <!-- ===================================================== -->
+  <form action="/story/<%= theStory.dataValues.id %>" method="post">
+    <div class="row" style= "display:flex; justify-content: center;">
+    <div class="col-md-2 container-fluid;" style= "margin-left: auto; margin-right: auto; align-items: flex-end" >
+    <select style="font-family:'Source Serif Pro', serif; border-color:#17C3B2; text-align: center;" name="theNewRating" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+      <option value=""selected>Rating</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+  </div>
+    
+  <div class="col-md-9 container-fluid">
+    <div class="input-group">
+      <textarea name=theNewReview value="" class="form-control" aria-label="With textarea" style="border-color:#17C3B2; margin-bottom: 10px;font-family:'Source Serif Pro', serif"></textarea>
+    </div>    
+  </div>
+</div>
+
+  <div class="col-md-12 d-flex align-items-end d-flex justify-content-end" >
+    <button type="submit" id="submitButton"  class="btn btn-secondary btn-lg" style="background-color:#FFE278; color:black; font-family: 'Source Serif Pro', serif" data-bs-toggle="modal" data-bs-target="#exampleModal">+ Add Review</button>
+  </div>
+</form>
+
+
+  <!-- existing comments -->
+
+  <div style="display:flex; flex-direction: column; align-items:center; margin: 20px; margin-right:10px">
+    <p style="font-weight:bolder; font-size: 17pt; font-family:'Source Serif Pro'; margin-bottom:0px; margin-top: 15px; text-align: center;">User Reviews</p>
+  <div class="col-md-12 container-fluid"style="background-color: white;   border-radius: 10px; margin-top: 0px; margin:20px">
+    <% for(let review of theReviews){ %>
+    <p style="font-family:'Source Serif Pro', serif; font-size: 15pt; font-weight: bolder;  margin-bottom: 4px;"><%=review.dataValues.User.username%> gives the story <%= review.dataValues.rating%>/5:
+
+  <p style="font-family:'Source Serif Pro', serif; font-size: 14pt; margin-top: 8px"><%=review.dataValues.text%></p> 
+  </p>
+  <% } %>
+</div>
+  </div>
+
+        
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+</body>
+</html>

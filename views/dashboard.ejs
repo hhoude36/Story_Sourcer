@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@300&display=swap" rel="stylesheet">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@300&display=swap');
+    </style>
+    <title>Story Sourcer</title>
+
+</head>
+<body style="background-color:rgb(242, 242, 242);">
+
+<!-- nav bar -->
+<!-- ===================================================== -->
+<nav class="navbar navbar-expand-lg bg-light" style="font-family: 'Source Serif Pro', serif; font-size: 17pt; padding: 0px;">
+  <div class="container-fluid blah" style="background-color:#17C3B2; justify-content: flex-end;">
+        <a class="nav-link active" style="padding: 15px" aria-current="page" href="/login">Log out</a>
+  </div>
+</nav>
+
+<!-- Title and add button -->
+<!-- ===================================================== -->
+      <div class="row" style="margin: 20px">
+        <div class="col-md-6">
+        <h1 style="font-family: 'Oswald', sans-serif; font-size: 50pt;">Story Sourcer</h1>
+        </div>
+
+        <div class="col-md-6 d-flex align-items-end d-flex justify-content-end">
+        <form action="/add" method="get">
+        <button type="submit" class="btn btn-secondary btn-lg addAStory" style="background-color:#FFE278; color:black; font-family: 'Source Serif Pro', serif;">+ Add a Story</button>
+        </div>
+      </form>
+     </div>
+
+<!-- Drop downs -->
+<!-- ===================================================== -->
+<div style="margin-left: 30px; margin-right: 30px">
+<form action="/search" method="post">
+<div class="row" style="font-family: 'Source Serif Pro', serif;">
+    <div class="col">
+    <select style="border-color:#17C3B2;"name="theAge" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+        <option value="" selected>Age Group</option>
+        <option value="PreK-1st">PreK-1st grade</option>
+        <option value="2nd-3rd">2nd-3rd grade</option>
+        <option value="4th-5th">4th-5th grade</option>
+        <option value="Middle School">Middle School</option>
+        <option value="Highschool">Highschool</option>
+        <option value="Adults">Adults</option>
+      </select>
+    </div>
+
+    <div class="col" style="font-family: 'Source Serif Pro', serif;">
+      <select style="border-color:#17C3B2;"  name ="theSource" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+        <option value="" selected>Source</option>
+        <option value="the Brothers Grimm">the Brothers Grimm</option>
+        <option value="Aesop's Fables">Aesop's Fables</option>
+        <option value="Perrault">Perrault</option>
+        <option value="Original">Original</option>
+      </select>
+    </div>
+
+<div class="row" >
+    <div class="col">
+        <select style="border-color:#17C3B2;" name="theMood"class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+            <option value="" selected>Mood</option>
+            <option value="funny">Funny</option>
+            <option value="random">Random</option>
+            <option value="twist ending">Twist ending</option>
+            <option value="happy">Happy</option>
+            <option value="heart warming">Heart warming</option>
+            <option value="dramatic">Dramatic</option>
+          </select>
+    </div>
+    
+        <div class="col">
+          <select style="border-color:#17C3B2;" name="theLevel" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+            <option value="" selected>Level</option>
+            <option value="Easy">Easy</option>
+            <option value="Medium">Medium</option>
+            <option value="Difficult">Difficult</option>
+          </select>
+        </div>
+
+        <div class="col">
+            <select style="border-color:#17C3B2;" name="theLength" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+              <option value="" selected>Length</option>
+              <option value="short">short</option>
+              <option value="medium">medium</option>
+              <option value="long">long</option>
+            </select>
+          </div>
+    </div>
+    </div>
+    <!-- Search bar -->
+<!-- ===================================================== -->
+    <div class="input-group input-group-lg" style="margin-bottom:20px">
+        <span style= "font-family:'Source Serif Pro', serif" class="input-group-text" id="inputGroup-sizing-lg">Title</span>
+        <input style="border-color:#17C3B2;" name="theTitle"type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+      </div>
+
+      <div class="d-grid gap-2 col-4 mx-auto">
+        <button class="btn btn-primary" type="submit" style="background-color:#FFE278; font-family: 'Source Serif Pro', serif; color:black; font-size: 17pt;">Search</button>
+      </div>
+</form>
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+
+</body>
+</html>
