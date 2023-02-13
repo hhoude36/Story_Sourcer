@@ -1,15 +1,17 @@
 const express = require('express');
 const app = express();
 const portNumber = process.env.PORT || 3000;
-const bodyParser = require('body-parser');
 const Sequelize = require('sequelize');
 const { Users, Stories, Reviews } = require('./models');
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
+const salt = bcrypt.genSaltSync(saltRounds);
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 require('dotenv').config
 // const multer = require('multer');
-app.use(bodyParser.urlencoded({extended:true}));
+app.use(express.json());
+app.use(express.urlencoded({extended:true}));
 app.use(express.static('public'));
 app.use(cookieParser());
 app.use(
@@ -108,15 +110,20 @@ app.get('/register', async function(req, res){
 
 app.post('/register', async function(req, res){
     const {theFirstName, theLastName, theUsername, thePassword}= req.body;
-    let theHashedPassword = await bcrypt.hash(thePassword,10);
-    let theNewUser = Users.create({
+    console.log(thePassword, "the password");
+    console.log(salt, "salt");
+
+    let theHashedPassword = bcrypt.hashSync(thePassword,salt);
+
+    let theNewUser = await Users.create({
         username: theUsername,
         password: theHashedPassword,
         first_name: theFirstName,
         last_name: theLastName,
     },
-    res.redirect('/login')
     )
+    console.log(theNewUser, "new user")
+    res.redirect('/login')
 })
 
 //index
