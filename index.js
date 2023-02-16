@@ -26,7 +26,6 @@ app.use(
     }));
     app.set('view engine', 'ejs');
     app.listen(portNumber, function(req, res){
-        console.log(`Listening on port http://localhost:${portNumber}`);
     })
 
 //images
