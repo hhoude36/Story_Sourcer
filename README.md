@@ -12,22 +12,17 @@ As a teacher, this was something I spent a ton of time doing. With Story Sourcer
 
 ## Screenshots 
 ![alt GIF of funcitoning site](https://res.cloudinary.com/dqfviar71/image/upload/v1676581484/ezgif.com-gif-maker_mguc5x.gif)
-![alt GIF of funcitoning site](https://res.cloudinary.com/dqfviar71/image/upload/v1676581517/mobile_1_mzchin.png)
-![alt GIF of funcitoning site](https://res.cloudinary.com/dqfviar71/image/upload/v1676581547/mobile_2_ysi8hq.png)
 
-
-
+***
 
 ## Features 
 - Bcrypt Encoding
 
-## Technical Framework Usage:
+## Technical Framework and Language Usage:
 - Sequelize
 - PostgreSQL
 - Express
 - HTML
-
-## Code Framework Style
 - Bootstrap
 - CSS
 
@@ -37,35 +32,43 @@ Deployed@**[Story Sourcer](https://story-sourcer.onrender.com)**
 ## Usage
 Sign-in and/or Sign-up.
 
-## Stretch Goals
-- [ ] Team Chatrooms.
-- [ ] Calendar integrations.
-- [ ] Coach and Manager Notification Board.
-- [ ] Turn the Custom Application into more widely used app.
-- [ ] Random Picture Display of the Events, Teams or Individual players.
-- [ ] AuthO is a third(3'd) party HIPPA approved and compliant identity management system.
-- [ ] Ability to give message alerts to parents if a telephone number or signed off form is incomplete.
+***
+
+## Future Goals
+- [ ] Ability to upload images.
+- [ ] Allow users to save and favorite stories.
+- [ ] Add admin login capabilities including deleting stories.
+- [ ] User profiles.
+- [ ] Ability to search by creator.
 
 ## Challenges
-- Time managing the two(2)-week sprint with all the features we would have liked to include in the project.
-- Five(5) developers branching off to build features that were dependant on each other.
-- Working with a team of developers on Zoom meetings across the USA and meeting for the first time.
+- Time managing just one(1) week to complete in a bootcamp setting.
+- Learning to upload images. I initially tried to upload images to the database directly, which was not very efficient. Since I've learned to use cloud based photo storage and instead upload a link to the database. I look forward to implementing this into this project. 
+- Developing the filter function, allowing a user to search based on multiple criteria. Snippet below. 
+
+`app.post('/search', async function(req, res){
+const {theTitle, theAge, theMood, theLength, theLevel, theSource} = req.body;
+let results = await Stories.findAll({
+where: {
+[Sequelize.Op.and]: [
+{title: {[Sequelize.Op.iLike]:'%' + theTitle + '%'}},
+// // {alt_title: {[Sequelize.Op.iLike]:'%' + theTitle + '%'}},
+{age: {[Sequelize.Op.iLike]:'%' + theAge + '%'}},
+{source: {[Sequelize.Op.iLike]:'%' + theSource + '%'}},
+{mood: {[Sequelize.Op.iLike]:'%' + theMood + '%'}},
+{length: {[Sequelize.Op.iLike]:'%' + theLength + '%'}},
+{level: {[Sequelize.Op.iLike]:'%' + theLevel + '%'}}
+]
+}
+})
+// console.log(results);
+res.render("search", {results})
+})`
+
 
 ## Triumphs
 - The ability to update a Profile Photo.
 - Communication between team when pushing up code from a branch without merge conflicts.
 - Applied the knowledge form the sixteen(16)-week coarse at DigitalCrafts Bootcamp to incorporate that knowledge into using MangoDB Database that was not cover during class period.
 
-## Capstone Project Credits Go To The Following Builders
- 
-- Full-Stack Developer:[Brittani Ericksen](https://github.com/brittani-ericksen) Front-End, LOGO-Design and WireFrame Layout.
-- Full-Stack Developer:[Justin Gardner](https://github.com/JustinSGardner) Back-End, Design-Styles and Design-Ideas.
-- Full-Stack Developer:[Chris Owens](https://github.com/chrisowensdev) Back-End, Design-Implementations and Deployment.
-- Full-Stack Developer:[Ryan Schniederjan](https://github.com/rynoschni) PM/Scrum Master, including coding and LayoutWireFrames.
-- Full-Stack Developer:[Annemarie Thomas](https://github.com/Athomas9sa) Front-End, Master Layout Components and ReadMe-Files.
-
-## GitHub Project Links:
-
-**[Frontend Design](https://github.com/brittani-ericksen/capstone-frontend/tree/main)**
-          &
-**[Backend Build](https://github.com/JustinSGardner/CapStoneProject-Backend/tree/main)**
+***
