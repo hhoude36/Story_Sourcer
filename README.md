@@ -11,7 +11,10 @@ Prior to my career as a developer, I worked as a language teacher using a method
 As a teacher, this was something I spent a ton of time doing. With Story Sourcer, teachers can share their adapted stories with one another. The stories can then be filtered by various criteria such as the target age of students, the story's source, or the length of the story to ensure they can find stories that meet their student's needs.
 
 ## Screenshots 
-![alt text](https://res.cloudinary.com/dqfviar71/image/upload/v1676580728/StitchGiF_bu5s0k.gif)
+![alt GIF of funcitoning site](https://res.cloudinary.com/dqfviar71/image/upload/v1676581484/ezgif.com-gif-maker_mguc5x.gif)
+![alt GIF of funcitoning site](https://res.cloudinary.com/dqfviar71/image/upload/v1676581517/mobile_1_mzchin.png)
+![alt GIF of funcitoning site](https://res.cloudinary.com/dqfviar71/image/upload/v1676581547/mobile_2_ysi8hq.png)
+
 
 
 
