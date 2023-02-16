@@ -47,22 +47,20 @@ Sign-in and/or Sign-up.
 - Learning to upload images. I initially tried to upload images to the database directly, which was not very efficient. Since I've learned to use cloud based photo storage and instead upload a link to the database. I look forward to implementing this into this project. 
 - Developing the filter function, allowing a user to search based on multiple criteria. Snippet below. 
 
-    `app.post('/search', async function(req, res){`
-   ` const {theTitle, theAge, theMood, theLength, theLevel, theSource} = req.body;`
-    let results = await Stories.findAll({
-    where: {
-    [Sequelize.Op.and]: [
-    {title: {[Sequelize.Op.iLike]:'%' + theTitle + '%'}},
-    // // {alt_title: {[Sequelize.Op.iLike]:'%' + theTitle + '%'}},
-    {age: {[Sequelize.Op.iLike]:'%' + theAge + '%'}},
-    {source: {[Sequelize.Op.iLike]:'%' + theSource + '%'}},
-    {mood: {[Sequelize.Op.iLike]:'%' + theMood + '%'}},
-    {length: {[Sequelize.Op.iLike]:'%' + theLength + '%'}},
-    {level: {[Sequelize.Op.iLike]:'%' + theLevel + '%'}}
-    ]}})
-    res.render("search", {results})
-    })
-    `
+        `app.post('/search', async function(req, res){
+        const {theTitle, theAge, theMood, theLength, theLevel, theSource} = req.body;`
+        let results = await Stories.findAll({
+        where: {
+        [Sequelize.Op.and]: [
+        {title: {[Sequelize.Op.iLike]:'%' + theTitle + '%'}},
+        {age: {[Sequelize.Op.iLike]:'%' + theAge + '%'}},
+        {source: {[Sequelize.Op.iLike]:'%' + theSource + '%'}},
+        {mood: {[Sequelize.Op.iLike]:'%' + theMood + '%'}},
+        {length: {[Sequelize.Op.iLike]:'%' + theLength + '%'}},
+        {level: {[Sequelize.Op.iLike]:'%' + theLevel + '%'}}
+        ]}})
+        res.render("search", {results})
+        })`
 
 
 ## Triumphs
